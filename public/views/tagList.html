@@ -1,0 +1,22 @@
+<div ng-include="src='/views/user.html'"></div>
+
+<div>
+  <div class="pull-right">
+   <div class="searchBar" query="repositories.query" options="repositories.options" func="search"></div>
+  </div>
+  <h3>Tag Map</h3>
+
+   <div class="container">
+      <div class="row">
+        <div class="col-md-4 tagPart" ng-repeat="(key,value) in repositories.tags ">
+          <h5>{{key | uppercase}}</h5>
+         <hr style="border-top: 1px solid black;">
+          <span ng-repeat="tag in value">
+            <span class="tagListEl" ng-click='repositories.searchTagByName(tag.value)' ng-include="'templates/tagListElem.html'"></span>
+            </span>
+          </span>
+        </div>
+      </div>
+  </div>
+    <a href="#!/"> <label class="btn btn-primary pull-right back-btn"> Back  </label> </a>
+</div> 

@@ -1,0 +1,75 @@
+<div class="modal-header">
+  <h3 class="modal-title">{{repo.name || "No name"}} — {{repo.owner.login || "nobody"}}
+    <div class="pull-right">
+      <span class="btn glyphicon glyphicon-thumbs-up" ng-class="{'btn-primary': repo.userVote!==1, 'btn-success': repo.userVote===1}" ng-click='vote(repo, "upVote")' ng-show='user'></span>
+      <span class="btn btn-primary glyphicon glyphicon-thumbs-down" ng-class="{'btn-primary': repo.userVote!==-1, 'btn-danger': repo.userVote===-1}" ng-click='vote(repo, "downVote")' ng-show='user'></span>
+      <a class="btn btn-primary" ng-href="{{repo.html_url+'/archive/master.zip'}}">
+        <i class="glyphicon glyphicon-download"></i> Download
+      </a>
+      <a class="btn btn-primary" ng-href="{{repo.html_url}}">
+        <i class="glyphicon glyphicon-briefcase"></i> Github
+      </a>
+      <a class="btn btn-primary" ng-class="checkDemo() ? 'enabled' : 'disabled'" ng-href="{{repo.bower_json.homepage}}">
+        <i class="glyphicon glyphicon-eye-open"></i> Demo
+      </a>
+    </div>
+  </h3>
+</div>
+<div class="modal-body">
+  <div><b>Description:</b> {{repo.description || "No description provided."}}</div>
+  <div class="row detailsRow">
+    <div class="col-md-7"><b>Home Page: </b> <a ng-href="{{repo.homepage || repo.html_url}}"> {{repo.homepage || repo.html_url || ''}} </a> </div>
+    <div class="col-md-5">
+      <b>Created: </b>{{repo.created_at | date}}
+    </div>
+  </div>
+  <div class="row detailsRow">
+    <div class="col-md-7"><b>Created By: </b><img class="avatar" ng-src="{{repo.owner.avatar_url}}}"/> {{repo.owner.login}}</div>
+    <div class="col-md-5"><b>Modified: </b>{{ repo.updated_at | date}}</div>
+  </div>
+  <div class="row detailsRow">
+    <div class="col-md-7"><b>Dependencies: </b> <div class="dependencies"><span ng-repeat="(dep, ver) in repo.bower.dependencies"> {{dep + " " +ver+", "}} </span> </div></div>
+    <div class="col-md-5"><b>License: {{repo.bower.license}}</b></div>
+  </div>
+  <div class="row detailsRow">
+   <div class="col-md-7"><b>Projects where used: </b> 
+     <span ng-repeat="project in repo.projects" ng-hide="editing">
+      <span class="project" ng-click='searchProject(project.name)' ng-include src="'templates/project.html'"> </span>
+    </span>
+    <tags-input ng-model="editedProjects" replace-spaces-with-dashes="false" on-tag-added="addProject($tag)"
+    on-tag-removed="removeProject($tag)" placeholder="Add a project" ng-hide="!editing">
+    <auto-complete source="projectList($query)"></auto-complete>
+  </tags-input>
+</div>
+</div>
+<div class="row detailsRow">
+  <div class="col-md-7"><b>Tags: </b>
+   <span ng-repeat="tag in repo.bower_json.keywords" ng-hide="editing"> <span class="tag" ng-click='searchTag(tag)' ng-include src="'templates/tag.html'"></span></span>
+
+   <tags-input ng-model="editedTags" ng-hide="!editing">
+   <auto-complete source="tagList($query)"></auto-complete>
+ </tags-input>
+</div>
+</div>
+</div>
+<tabset>
+  <tab>
+    <tab-heading>
+    <i class="glyphicon glyphicon-book"></i> Readme
+  </tab-heading>
+  <div class="readme">
+    <div marked="repo.readme"> </div>
+  </div>
+</tab>
+<tab>
+  <tab-heading>
+  <i class="glyphicon glyphicon-comment"></i> Comments
+</tab-heading>
+<div disqus="repo.id"></div>
+</tab>
+</tabset>
+<div class="modal-footer">
+  <button class="btn btn-warning" ng-hide="editing || !isAdmin" ng-click="edit()">Edit</button>
+  <button class="btn btn-success" ng-hide="!editing || !isAdmin" ng-click="save()">Save</button>
+  <button class="btn btn-primary" ng-click="cancel()">Close</button>
+</div>

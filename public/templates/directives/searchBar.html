@@ -1,0 +1,14 @@
+	<div class="searchbar">
+	    <span ng-repeat="(facet, values) in query">
+	        <span ng-repeat="value in values">
+	            <span class="searchFacet" facet="{{facet}}" value="value"></span>
+	        </span>
+	    </span>
+	    <span ng-class="selectedFacet ? 'current current-margined' : 'current'">
+			<i ng-class="{'glyphicon glyphicon-remove-sign': selectedFacet}" ng-click="deleteNewFacet()"></i>
+			<b>{{selectedFacet}}</b>
+		</span>
+	    <input class="search-input main-input" type='text' ng-model='test.zmienna' ui-autocomplete="autocompleteOptions"></input>
+	    <i ng-hide="emptyQuery()" class="glyphicon glyphicon-trash"></i>
+	    <button class="searchButton" ng-click="func(query)"><span class="glyphicon glyphicon-search"></span></button>
+	</div>

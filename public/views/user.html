@@ -1,0 +1,11 @@
+<div class="header">
+  <h3 class="text-muted"> <a href="#!/">AngularJS Collective</a>
+  <div class="pull-right user">
+    <span>Welcome {{(user.displayName || 'Guest') +' !'}}</span>
+    <img ng-if="user._json.avatar_url" class="avatar" ng-src="{{user._json.avatar_url}}}"/>
+    <span ng-if="user"><label ng-click="logout()" class="btn btn-primary">Logout</label>  </span>
+    <span ng-if="!user"><label ng-click="login()"class="btn btn-primary" >Login</label>  </span>
+    <ng-toast></ng-toast>
+  </div>
+</h3>
+</div>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="lib/ng-tags-input/ng-tags-input.min.css" />
+    <link rel="stylesheet" href="lib/angular-loading-bar/build/loading-bar.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <link rel="stylesheet" href="lib/jquery-ui/themes/base/all.css">
+    <link rel="stylesheet" href="lib/ng-tags-input/ng-tags-input.css">
+    <link rel="stylesheet" href="lib/angular-ui-notification/dist/angular-ui-notification.min.css">
+    <link rel="stylesheet" href="lib/angular-loading-bar/build/loading-bar.min.css">
+
+
+  </head>
+  <body ng-app="angularcolApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="container">
+
+
+      <div ng-view=""></div>
+
+      <div class="footer">
+        <p><a href="http://www.clearcode.cc"><i class="ficon-cc"></i> 2014 ClearCode</a></p>
+      </div>
+    </div>
+
+
+    <!--[if lt IE 9]>
+    <script src="lib/es5-shim/es5-shim.js"></script>
+    <script src="lib/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/jquery-ui/jquery-ui.min.js"></script>
+    <script src="lib/marked/lib/marked.js"></script>
+    <!-- bower:js -->
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/json3/lib/json3.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-touch/angular-touch.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/angular-marked/angular-marked.js"></script>
+    <script src="lib/angucomplete-alt/angucomplete-alt.js"></script>
+    <script src="lib/jquery-ui/jquery-ui.js"></script>
+    <script src="lib/ng-tags-input/ng-tags-input.min.js"></script>
+    <script src="lib/angular-loading-bar/build/loading-bar.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- script src="lib/angular-bootstrap/ui-bootstrap.js"></script> -->
+    <script src="lib/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script src="lib/ui-autocomplete/autocomplete.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="lib/angular-disqus/angular-disqus.js"></script>
+    <script src="lib/ng-tags-input/ng-tags-input.js"></script>
+    <script src="lib/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/services/userToken.js"></script>
+        <script src="scripts/services/repositories.js"></script>
+        <script src="scripts/controllers/repository.js"></script>
+        <script src="scripts/directives/module.js"></script>
+        <script src="scripts/directives/search.js"></script>
+        <script src="scripts/directives/searchBar.js"></script>
+        <script src="scripts/tokenInterceptor.js"></script>
+        <!-- endbuild -->
+
+    <!--(if target dev)><!-->
+    <script src="lib/angular-mocks/angular-mocks.js"></script>
+    <script src="scripts/e2e-mocks.js"></script>
+    <!--<!(endif)-->
+
+
+</body>
+</html>

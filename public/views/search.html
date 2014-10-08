@@ -1,0 +1,45 @@
+<div ng-include="src='/views/user.html'"></div>
+
+<div>
+  <div class="pull-right">
+   <div class="searchBar" query="repositories.query" options="repositories.options" func="search"></div>
+  </div>
+  <div class="repoList">
+  <form>
+    <button class="btn btn-success pull-right" style="margin-left:10px" ng-disabled="!repositories.enableSort" ng-model="repositories.sort" btn-checkbox>{{repositories.sort? 'Ascending' : 'Descending'}}</button>
+    <div class="form-group" style="padding-bottom:30px">
+    <select id="sort-type2" ng-disabled="!repositories.enableSort" class="pull-right form-control" ng-model="repositories.sortBy" ng-options="sortOption.value as sortOption.text for sortOption in repositories.sortOptions" style="width:120px;">
+    </select>
+    </div>
+  </form>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+          <div ng-repeat="repository in repositories.array">
+            <div class="module" repo="repository" details-click="setDetails(repository.full_name)" query="repositories.query" vote="vote" user="user"></div>
+          </div>
+      </div>
+      <div class="col-md-4">
+      <div class="tagHeader">
+        <h3> Tags:
+          <select id="sort-type2" class="pull-right form-control" ng-model="repositories.sortTags" ng-options="sortTagOption.value as sortTagOption.text for sortTagOption in repositories.sortTagOptions" style="width:120px;">
+          </select>
+        </h3>
+        </div>
+          <span ng-repeat="tag in repositories.tags">
+            <span class="tagListEl" ng-click='repositories.searchTagByName(tag.value)' ng-include="'templates/tagListElem.html'"></span>
+          </span>
+          <a href="#!/tagList"> <label class="btn btn-success pull-right allTags"> All tags  </label> </a>
+          <form ng-submit="repositories.addToNewsletter()" class="subForm">
+            <button class="btn btn-success pull-right" style="margin-left:10px">Join the newsletter</button>
+            <div class="form-group" style="padding-bottom:30px">
+            <input class="pull-right form-control" style="width:120px;" type="email" ng-model="repositories.email">
+            </input>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+  <pagination total-items="repositories.totalItems" items-per-page="repositories.perPage" ng-model="repositories.currentPage"  max-size="7"  ng-change="repositories.pageChanged()"></pagination>
+  <a href="#!/"> <label class="btn btn-primary pull-right back-btn"> Back  </label> </a>
+</div>

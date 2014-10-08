@@ -1,0 +1,44 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+.edit-tag, .tag, .tagListEl, .project {
+	cursor: pointer;
+	padding:7px;
+	margin-right: 5px;
+	color : #ffffff;
+	border: 1px solid transparent;
+	background-color: #428bca;
+	border-color: #357ebd;
+	@include border-radius(4px);
+}
+
+.tagLabel, .projectLabel{
+	margin-left: 5px;
+}
+
+.tag > i {
+	margin-right: 5px;
+}
+
+.tagListEl {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.allTags {
+	width:100%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.tagHeader {
+	margin-bottom: 20px;
+}
+
+.tagPart {
+	margin-bottom: 20px;
+}

@@ -1,0 +1,22 @@
+<div class="col-md-11 col-centered">
+  <div class="btnContainter pull-right" style="z-index:9001">
+    <span class="btn glyphicon glyphicon-thumbs-up" ng-class="{'btn-primary': repo.userVote!==1, 'btn-success': repo.userVote===1}" ng-click='vote(repo, "upVote")' ng-show='user'></span>
+    <span class="btn btn-primary glyphicon glyphicon-thumbs-down" ng-class="{'btn-primary': repo.userVote!==-1, 'btn-danger': repo.userVote===-1}" ng-click='vote(repo, "downVote")' ng-show='user'></span>
+    <a class="btn btn-primary" ng-class="checkDemo() ? 'enabled' : 'disabled'" ng-href="{{repo.bower_json.homepage}}">
+      <i class="glyphicon glyphicon-eye-open"></i> Demo
+    </a>
+    <label id="details" class="btn btn-primary" style="width:43px, height:20px" ng-click="detailsClick()"> Details </label>
+  </div>
+  <div class="row">
+    <div class="name col-md-7 name">{{repo.name || "No name"}} — {{repo.owner.login || "nobody"}}</div>
+  </div>
+  <div class="description"><b>Description:</b> {{repo.description || "No description provided."}}</div>
+  <div class="tagList">
+  	<b>Tags:</b> <span ng-repeat="tag in repo.bower_json.keywords">
+      <span class="tag" ng-click="searchTag(tag)" ng-include src="'templates/tag.html'"></span>
+    </span>
+  </div>
+  <div class='pull-right votage'>
+      <span class="glyphicon glyphicon-thumbs-up">: {{repo.voteSum || 0}} </span>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.detailsRow {
+  padding-top:15px;
+}
+
+.avatar {
+  width:50px; /* you can use % */
+  height: auto;
+}
+
+.dependencies {
+  max-height:44px;
+  overflow-y:auto;
+}
+
+div .readme, #disqus_thread {
+  max-height:400px;
+  overflow-y:auto;
+  padding:15px;
+}
