@@ -90,7 +90,7 @@ grunt jscs
 License
 ----
 
-LGPL
+MIT (pending)
 [mean stack]:http://meanjs.org/
 [Angular-JS]:https://angularjs.org/
 [Ui.Bootstrap]:http://angular-ui.github.io/bootstrap/

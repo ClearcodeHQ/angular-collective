@@ -29,7 +29,7 @@ angular.module('angularcolApp').service('Repositories', ['$http', 'userToken', f
             case('ClearCode'):
                 url = 'api/search/repositories';
                 params = {
-                    q:'user:jaciej',
+                    q:'user:clearcodeangularjs',
                     forked:false,
                     page:page
                 };
@@ -37,7 +37,7 @@ angular.module('angularcolApp').service('Repositories', ['$http', 'userToken', f
             case('Others'):
                 url = 'api/search/repositories';
                 params = {
-                    q:'user:jaciej',
+                    q:'user:clearcodeangularjs',
                     forked:true,
                     page:page
                 };

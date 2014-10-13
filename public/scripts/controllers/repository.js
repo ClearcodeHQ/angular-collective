@@ -413,7 +413,7 @@ angular.module('angularcolApp').controller('RepositoryCtrl', [
                 angular.forEach($scope.tabs, function(value) {
                     value.active = (value.title === filter);
                 });
-                $scope.getRepositories(page, 'angular', filter, sort, undefined, sortBy);
+                $scope.getRepositories(page, 'clearcodeangularjs', filter, sort, undefined, sortBy);
             }
             else{
                 if(searchName) {
