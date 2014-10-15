@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h3 class="modal-title">{{repo.name || "No name"}} — {{repo.owner.login || "nobody"}}
+  <h4 class="modal-title">{{repo.name || "No name"}} — {{repo.owner.login || "nobody"}}
     <div class="pull-right">
       <span class="btn glyphicon glyphicon-thumbs-up" ng-class="{'btn-primary': repo.userVote!==1, 'btn-success': repo.userVote===1}" ng-click='vote(repo, "upVote")' ng-show='user'></span>
       <span class="btn btn-primary glyphicon glyphicon-thumbs-down" ng-class="{'btn-primary': repo.userVote!==-1, 'btn-danger': repo.userVote===-1}" ng-click='vote(repo, "downVote")' ng-show='user'></span>

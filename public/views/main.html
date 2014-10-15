@@ -26,12 +26,12 @@
             </div>
             <div class="col-md-4">
             <div class="tagHeader">
-              <h3> Tags:
+              <h3> Tags  {{'(' + (repositories.tags.length || '?') + ')'}}:
                 <select id="sort-type2" class="pull-right form-control" ng-model="repositories.sortTags" ng-options="sortTagOption.value as sortTagOption.text for sortTagOption in repositories.sortTagOptions" style="width:120px;">
                 </select>
               </h3>
               </div>
-                <span ng-repeat="tag in repositories.tags">
+                <span ng-repeat="tag in repositories.tags|limitTo:15">
                  <span class="tagListEl" ng-click='repositories.searchTagByName(tag.value)' ng-include src="'templates/tagListElem.html'"></span>
                 </span>
               <div>

@@ -111,7 +111,7 @@ angular.module('angularcolApp')
                                     data = data.concat(value);
                                 });
 
-                                response(data);
+                                response(data.slice(0, 15)); //limit autocomplete
                             }
                         },
                         methods: {},
